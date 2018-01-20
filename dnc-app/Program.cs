@@ -20,6 +20,9 @@ namespace dnc_app
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                // apparently you need to call this line explicitly even though it probably
+                // should come from config
+                // https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/microservices
                 .UseUrls("http://*:5001")
                 .Build();
     }
