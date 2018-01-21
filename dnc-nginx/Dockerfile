@@ -4,16 +4,20 @@
 
 FROM ubuntu:16.04
 
+# software
 RUN apt-get update
 RUN apt-get install -y nano
 RUN apt-get install -y nginx
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Configure virtual host
-ADD dnc-app.conf /etc/nginx/conf.d/dnc-app.conf
+# configuration files
+ADD ./etc/nginx/conf.d/dnc-app-1.conf /etc/nginx/conf.d/dnc-app-1.conf
+ADD ./etc/nginx/mime.types /etc/nginx/mime.types
+ADD ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
 
+# ports
 EXPOSE 80
-EXPOSE 443
 
+# run
 CMD ["nginx", "-g", "daemon off;"]

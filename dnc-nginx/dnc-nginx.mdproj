@@ -10,7 +10,10 @@
     <OutputPath>.\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="dnc-app.conf" />
     <None Include="Dockerfile" />
+    <None Include="etc\nginx\mime.types" />
+    <None Include="etc\nginx\nginx.conf" />
+    <None Include="etc\nginx\nginx.conf.backup" />
+    <None Include="etc\nginx\conf.d\dnc-app-1.conf" />
   </ItemGroup>
 </Project>
